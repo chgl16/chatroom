@@ -1,7 +1,7 @@
 # chatroom
     基于WebSocket子协议STOMP实现的WEB端点对点实时聊天系统
 
-<hr>
+<br>
 
 ## 开发环境
 ![JAVA](https://img.shields.io/badge/Java-1.8-green.svg) 
@@ -15,7 +15,7 @@
 ![jQuery](https://img.shields.io/badge/jQuery-3.3.1-brown.svg)
 ![bootstrap](https://img.shields.io/badge/Bootstrap-4.1.3-purple.svg)
 
-<hr>
+<br>
 
 ## 启动项目
     开发环境8080端口，线上环境80端口
@@ -29,7 +29,7 @@ mvn clean package
 java -jar target/*.jar
 ```
 
-<hr>
+<br>
 
 ## 效果截图
 
