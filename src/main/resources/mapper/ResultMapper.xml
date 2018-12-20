@@ -8,8 +8,10 @@
         <id property="id" column="id"/>
         <result property="username" column="username"/>
         <result property="password" column="shadow"/>
+        <!--
         <collection property="roles" ofType="xyz.cglzwz.chatroom.domain.SysRole">
             <result column="name" property="name"/>
         </collection>
+        -->
     </resultMap>
 </mapper>
