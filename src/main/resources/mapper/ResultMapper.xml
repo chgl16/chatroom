@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 共用的结果集-->
+<mapper namespace="common">
+    <!-- 用户表 -->
+    <resultMap id="userResultMapper" type="xyz.cglzwz.chatroom.domain.SysUser">
+        <id property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="password" column="shadow"/>
+        <collection property="roles" ofType="xyz.cglzwz.chatroom.domain.SysRole">
+            <result column="name" property="name"/>
+        </collection>
+    </resultMap>
+</mapper>
