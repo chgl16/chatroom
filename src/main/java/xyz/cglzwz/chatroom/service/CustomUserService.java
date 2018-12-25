@@ -35,11 +35,6 @@ public class CustomUserService implements UserDetailsService {
     @Autowired
     private UserMapper userMapper;
 
-    @Bean
-    public BCryptPasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
-
     /**
      * 重写 loadUserByUsername 方法获取 userDetails 类型用户
      * SysUser 已经实现 UserDetails
@@ -53,20 +48,15 @@ public class CustomUserService implements UserDetailsService {
         SysUser user = userMapper.findByUsername(username);
         if (user != null) {
             log.info("username存在");
-	    
-            // 这种不行注意
-            // PasswordEncoder encoder2 = PasswordEncoderFactories.createDelegatingPasswordEncoder();
-            BCryptPasswordEncoder encoder = passwordEncoder();
-            String shadow = encoder.encode(user.getPassword());
             log.info("打印: " + user);
 
             // 用户权限
             List<SimpleGrantedAuthority> authorities = new ArrayList<>();
-            //用于添加用户的权限。只要把用户权限添加到authorities
+            //用于添加用户的权限。只要把用户权限添加到authorities[本项目固定是用户角色]
             authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
 
             return new org.springframework.security.core.userdetails.User(user.getUsername(),
-                    shadow, authorities);
+                    user.getPassword(), authorities);
         } else {
             throw new UsernameNotFoundException("admin: " + username + " do not exist!");
         }

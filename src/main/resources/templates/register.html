@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>注册页面</title>
-    <!--<link rel="stylesheet" type="text/css" th:href="@{css/login.css}">-->
-    <link rel="stylesheet" type="text/css" href="../static/css/login.css">
+    <link rel="stylesheet" type="text/css" th:href="@{css/login.css}">
+    <!--<link rel="stylesheet" type="text/css" href="../static/css/login.css">-->
 </head>
 <body>
-<form id="root-form">
+<form id="root-form" action="/user/register" method="post">
     <span class="slogan">Please register</span>
     <input type="text" class="input-message" name="username" placeholder="Username">
     <br>
@@ -19,7 +19,10 @@
     <br>
     <input type="reset" class="input-button" value="Reset">
     <br>
-    <a href="#">Login</a>
+    <a href="/login">Login</a>
 </form>
+<script th:src="@{lib/jquery.js}"></script>
+<script th:src="@{lib/jquery-form.js}"></script>
+<script th:src="@{js/register.js}"></script>
 </body>
 </html>

@@ -7,7 +7,7 @@
     <resultMap id="userResultMapper" type="xyz.cglzwz.chatroom.domain.SysUser">
         <id property="id" column="id"/>
         <result property="username" column="username"/>
-        <result property="password" column="shadow"/>
+        <result property="password" column="password"/>
         <!--
         <collection property="roles" ofType="xyz.cglzwz.chatroom.domain.SysRole">
             <result column="name" property="name"/>

@@ -4,4 +4,8 @@
     <select id="findByUsername"  resultMap="common.userResultMapper">
         SELECT * FROM sys_user WHERE username = #{username}
     </select>
+
+    <insert id="insertUser" parameterType="sysUser">
+        INSERT INTO sys_user(`username`, `password`) VALUES(#{username}, #{password})
+    </insert>
 </mapper>

@@ -60,7 +60,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                // .antMatchers("/login").permitAll()
                 .and()
                 .formLogin()
-                // 自定义登录页面
+                // 自定义登录页面,而且要保证提交表单post的请求也是这个。。。（自己的）
                 .loginPage("/login").permitAll()
                 .successForwardUrl("/index")
                 .and()

@@ -8,7 +8,7 @@ USE `chatroom`;
 CREATE TABLE `sys_user` (
     `id` INT UNSIGNED AUTO_INCREMENT COMMENT '用户ID',
     `username` VARCHAR(12) UNIQUE COMMENT '用户名',
-    `shadow` VARCHAR(100) NOT NULL COMMENT '密文',
+    `password` VARCHAR(100) NOT NULL COMMENT '密文',
      PRIMARY KEY(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

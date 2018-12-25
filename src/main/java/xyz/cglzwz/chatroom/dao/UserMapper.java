@@ -15,5 +15,18 @@ import xyz.cglzwz.chatroom.domain.SysUser;
 
 @Repository
 public interface UserMapper {
+    /**
+     * 通过用户名查找该用户
+     *
+     * @param username
+     * @return
+     */
     public SysUser findByUsername(@Param("username") String username);
+
+    /**
+     * 注册一位用户
+     *
+     * @param sysUser
+     */
+    public void insertUser(SysUser sysUser);
 }

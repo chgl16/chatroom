@@ -11,9 +11,10 @@ stomp.connect('guest', 'guest', function (frame) {
 $('#chat-form').submit(function (e) {
     e.preventDefault();
     var text = $('input')[0].value;
-    console.log("发送的内容:" + text);
+    var receiver = $('input')[2].value;
+    console.log("发送的内容: [" + text + "] || 要发送给的对象: [" + receiver + "]");
     showSendMsg(text);
-    stomp.send("/chat", {}, text);
+    stomp.send("/chat", {}, JSON.stringify({"text": text, "receiver": receiver}));
 });
 
 /**
@@ -24,7 +25,7 @@ function showSendMsg(message) {
     // 这个API时间格式化函数别人写的是，这里用hh ...
     var now = new Date().Format("yyyy-MM-dd hh:mm:ss");
     // 这里显示还没有完善
-    $('#receive')[0].innerHTML += '<span>'.concat(now).concat("<br>").concat(message).concat('</span><br>');
+    $('#receive')[0].innerHTML += '<span>'.concat(now).concat("<br> 我: ").concat(message).concat('</span><br><hr>');
     // 删除输入框内容
     $('input')[0].value = "";
 }
@@ -38,7 +39,7 @@ function showGetMsg(message) {
     // 这个API时间格式化函数别人写的是，这里用hh ...
     var now = new Date().Format("yyyy-MM-dd hh:mm:ss");
     // 这里显示还没有完善(此外：异步回调的message是一个http数据包，数据在body)
-    $('#receive')[0].innerHTML += '<span>'.concat(now).concat("<br>").concat(message.body).concat('</span><br>');
+    $('#receive')[0].innerHTML += '<span>'.concat(now).concat("<br>").concat(message.body).concat('</span><br><hr>');
 }
 
 // 对Date的扩展，将 Date 转化为指定格式的String   
