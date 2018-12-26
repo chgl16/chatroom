@@ -57,7 +57,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 // 授权请求
                 .authorizeRequests()
                 // 不拦截 "/login"
-               // .antMatchers("/login").permitAll()
+                .antMatchers("/login").permitAll()
+                // 首页需要认证
+                .antMatchers("/", "/index").authenticated()
                 .and()
                 .formLogin()
                 // 自定义登录页面,而且要保证提交表单post的请求也是这个。。。（自己的）

@@ -13,7 +13,6 @@ import xyz.cglzwz.chatroom.service.RegisterService;
 
 import java.security.Principal;
 
-
 /**
  * 控制器
  *
@@ -48,7 +47,10 @@ public class WsController {
         log.info("消息发送者: " + principal.getName());
         log.info("消息接收者: " + message.getReceiver());
         log.info("消息的内容: " + message.getText());
-        if (true) {
+        if (message.getReceiver().equals("")) {
+            log.info("不填接收者，这是广播");
+            simpMessagingTemplate.convertAndSendToUser("", "/notification", "@广播(" + principal.getName() + "): " + message.getText());
+        } else {
             simpMessagingTemplate.convertAndSendToUser(message.getReceiver(), "/notification", principal.getName() + ": " + message.getText());
         }
         log.info("服务器完成该转发-------------------------");
@@ -73,8 +75,6 @@ public class WsController {
         log.info("注册接受到的的前端用户名密码 username:" + sysUser.getUsername() + ", password: " + sysUser.getPassword());
         return "login";
     }
-
-
 
     @GetMapping("/register")
     public String register() {
