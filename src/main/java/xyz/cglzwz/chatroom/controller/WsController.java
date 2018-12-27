@@ -49,9 +49,11 @@ public class WsController {
         log.info("消息的内容: " + message.getText());
         if (message.getReceiver().equals("")) {
             log.info("不填接收者，这是广播");
-            simpMessagingTemplate.convertAndSendToUser("", "/notification", "@广播(" + principal.getName() + "): " + message.getText());
+            simpMessagingTemplate.convertAndSendToUser("", "/notification",
+                    "@广播(" + principal.getName() + "): " + message.getText());
         } else {
-            simpMessagingTemplate.convertAndSendToUser(message.getReceiver(), "/notification", principal.getName() + ": " + message.getText());
+            simpMessagingTemplate.convertAndSendToUser(message.getReceiver(), "/notification",
+                    principal.getName() + ": " + message.getText());
         }
         log.info("服务器完成该转发-------------------------");
     }
