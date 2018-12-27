@@ -30,7 +30,7 @@ java -jar target/*.jar
 ```
 
 服务器
-```xml
+```shell
 java -jar *.jar > log 2>&1 & 
 ```
 
@@ -136,9 +136,11 @@ stomp.send("/chat", {}, JSON.stringify({"text": text, "receiver": receiver}));
 public void handleChat(Principal principal, Message message) {
     if (message.getReceiver().equals("")) {
         log.info("不填接收者，这是广播");
-        simpMessagingTemplate.convertAndSendToUser("", "/notification", "@广播(" + principal.getName() + "): " + message.getText());
+        simpMessagingTemplate.convertAndSendToUser("", "/notification",  
+            "@广播(" + principal.getName() + "): " + message.getText());
     } else {
-        simpMessagingTemplate.convertAndSendToUser(message.getReceiver(), "/notification", principal.getName() + ": " + message.getText());
+        simpMessagingTemplate.convertAndSendToUser(message.getReceiver(), "/notification",  
+            principal.getName() + ": " + message.getText());
     }
 }
 ```
