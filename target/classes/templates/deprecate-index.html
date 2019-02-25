@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>在线聊天室</title>
+    <link type="text/css" rel="stylesheet" th:href="@{css/deprecate-index.css}">
+</head>
+<body>
+    <form id="chat-form">
+        <span class="slogan">聊 天 室</span>
+        <a class="change-user" href="/login">切换账号</a>
+        <div class="content">
+            <span id="receive"></span>
+        </div>
+        <!--<textarea class="message" rows="3" cols="50" name="text"></textarea>-->
+        <input class="message" type="text" name="text">
+        <input class="button" type="submit" value="发送"/>
+        <hr>
+        <input type="text" name="receiver" placeholder="接收者(若为空则表示全网广播)">
+    </form>
+
+    <script th:src="@{lib/sockjs.min.js}"></script>
+    <script th:src="@{lib/stomp.min.js}"></script>
+    <script th:src="@{lib/jquery.js}"></script>
+    <script th:src="@{js/deprecate-index.js}"></script>
+</body>
+</html>

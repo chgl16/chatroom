@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>登录页面</title>
+    <link rel="stylesheet" type="text/css" th:href="@{css/login.css}">
+    <link rel="shortcut icon" href="./favicon.ico">
+</head>
+<body>
+    <form id="root-form" action="./login" method="post">
+        <span class="slogan">Please login</span>
+        <input type="text" class="input-message" name="username" placeholder="Username">
+        <br>
+        <input type="password" class="input-message" name="password" placeholder="Password">
+        <br><br>
+        <input type="submit" class="input-button" value="Login">
+        <br>
+        <input type="reset" class="input-button" value="Reset">
+        <br>
+        <a href="./register">Register</a>
+    </form>
+</body>
+</html>

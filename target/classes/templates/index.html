@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>聊天窗口界面</title>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{css/reset.min.css}">
+    <link rel="stylesheet" th:href="@{css/index.css}">
+    <link rel="stylesheet" th:href="@{css/style.css}">
+    <link rel="shortcut icon" href="./favicon.ico">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            
+            <div class="left">
+                <div class="top">
+                    <img class="mine-img" src="https://avatars0.githubusercontent.com/u/27359316?s=460&v=4" />
+                    <br><br>
+                    <span>
+                        基于WebSocket在线聊天室
+                    </span>
+                    <!-- <input type="text" placeholder="Search" /> -->
+                    <!-- <a href="javascript:;" class="search"></a> -->
+                </div>
+
+                <div class="readme">
+                    <div class="introduction">
+                        <span class="title">使用说明</span>
+                        <span class="item">1. 注册获取几个用户账号</span>
+                        <span class="item">2. 浏览器开几个窗口分别登录</span>
+                        <span class="item">3. 填写发送对象,为空则广播</span>
+                        <span class="item">4. 点对点/广播 发送消息</span>
+                    </div>
+                    <div class="insufficience">
+                        <span class="title">有待更新</span>
+                        <span class="item">1. 线上人数、用户对象显示</span>
+                        <span class="item">2. 用户会话session保存</span>
+                        <span class="item">3. 自定义登录拦截器补充</span>
+                        <span class="item">4. 实现用户、用户组、房间</span>
+                        <span class="item">5. 用户聊天界面优化</span>
+                    </div>
+                    <div class="copyright">
+                        <span class="item">@Jnu-chgl16 2018-12-26</span>
+                        <span class="item"></span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="right">
+                <div class="top">
+                    <span>发送给: </span>
+                    <input type="text" class="receiver-input" placeholder="对方用户名（为空全网广播）" />
+                    <a class="change-user" href="./login"> 切换账号</a>
+                </div>
+                <div class="chat active-chat">
+                    <!--
+                    <div class="conversation-start">
+                        <span>Today, 6:48 AM</span>
+                    </div>
+                    <div class="bubble you">
+                        你好啊,
+                    </div>
+                    <div class="bubble you">
+                        我是小明
+                    </div>
+                    <div class="bubble me">
+                        我知道
+                    </div>
+                    -->
+                </div>
+
+                <div class="write">
+                    <a class="write-link attach"></a>
+                    <input type="text" />
+                    <a href="javascript:sendMessage();" class="write-link send"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script th:src="@{lib/sockjs.min.js}"></script>
+    <script th:src="@{lib/stomp.min.js}"></script>
+    <script th:src="@{lib/jquery.js}"></script>
+    <script th:src="@{js/index.js}"></script>
+</body>
+</html>
