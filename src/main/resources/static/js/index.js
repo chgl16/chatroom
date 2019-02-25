@@ -1,4 +1,4 @@
-var sock = new SockJS("/chatroom/endpointChat");
+var sock = new SockJS("./endpointChat");
 var stomp = Stomp.over(sock);
 stomp.connect('guest', 'guest', function (frame) {
     stomp.subscribe("/user/notification", showGetMsg);

@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <title>注册页面</title>
     <link rel="stylesheet" type="text/css" th:href="@{css/login.css}">
-    <link rel="shortcut icon" href="/chatroom/favicon.ico">
+    <link rel="shortcut icon" href="./favicon.ico">
 </head>
 <body>
-<form id="root-form" action="/chatroom/user/register" method="post">
+<form id="root-form" action="./user/register" method="post">
     <span class="slogan">Please register</span>
     <input type="text" class="input-message" name="username" placeholder="Username">
     <br>
@@ -19,7 +19,7 @@
     <br>
     <input type="reset" class="input-button" value="Reset">
     <br>
-    <a href="/chatroom/login">Login</a>
+    <a href="./login">Login</a>
 </form>
 <script th:src="@{lib/jquery.js}"></script>
 <script th:src="@{lib/jquery-form.js}"></script>
